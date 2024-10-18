@@ -10,14 +10,14 @@ function spliceAfterDecimal(number) {
     return numStr.slice(0, decimalIndex + 5); 
 }
 
-const mysteryangle = prompt("What is the cos angle?")
+const mysteryangle = prompt("What is the tan angle?")
 
-let cos1 = Math.cos(mysteryangle*Math.PI/180);
+let tan1 = Math.tan(mysteryangle*Math.PI/180);
 
-let cos2 = spliceAfterDecimal(cos1) 
+let tan2 = spliceAfterDecimal(tan1) 
 
-console.log(cos2); 
+console.log(tan2); 
 
-const hpy = prompt("What is hyp")
+const opp = prompt("What is opp")
 
-console.log(hpy * Number(cos2))
+console.log(opp * Number(tan2))
