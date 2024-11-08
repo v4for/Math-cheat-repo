@@ -19,7 +19,6 @@ function fitQuadratic(x, y) {
   };
 }
 
-// Matrix multiplication (Matrix * Matrix)
 function multiplyMatrices(A, B) {
   let result = [];
   for (let i = 0; i < A.length; i++) {
@@ -31,7 +30,6 @@ function multiplyMatrices(A, B) {
   return result;
 }
 
-// Matrix-vector multiplication (Matrix * Vector)
 function multiplyMatrixVector(A, b) {
   let result = [];
   for (let i = 0; i < A.length; i++) {
@@ -75,27 +73,25 @@ function gaussianElimination(A, b) {
   return x;
 }
 
-  let number = parseInt(prompt("Enter a number:"));
+let number = parseInt(prompt("Enter a number:"));
 
-  let x_data = [];
-  for (let i = 1; i <= number; i++) {
-      x_data.push(i);
-  }
+let x_data = [];
+for (let i = 1; i <= number; i++) {
+    x_data.push(i);
+}
 
-  let y_data = [];
+let y_data = [];
 
-  for (let i = 0; i < x_data.length; i++) {
-    let input = parseInt(prompt(`Enter a number for y_data[${i + 1}]:`));
-    y_data.push(input);
-  }
+for (let i = 0; i < x_data.length; i++) {
+  let input = parseInt(prompt(`Enter a number for y_data[${i + 1}]:`));
+  y_data.push(input);
+}
 
 let { a, b, c } = fitQuadratic(x_data, y_data);
 
-console.log("This would be right for quadratic equations only")
-//console.log('The recursive function is: f(x) = f(x - 1) + ' + (a * 2).toFixed(2) + '+');
+console.log("This would be right for quadratic equations only");
 console.log(`The explicit equation is: f(x) = ${a.toFixed(2)}x^2 + ${b.toFixed(2)}x + ${c.toFixed(2)}`);
 
-// Predict y for the next two x values
 let next_x1 = number + 1;
 let next_x2 = number + 2;
 
@@ -105,3 +101,15 @@ let next_y2 = a * next_x2 * next_x2 + b * next_x2 + c;
 console.log(`Predicted y value for x = ${next_x1}: ${next_y1.toFixed(2)}`);
 console.log(`Predicted y value for x = ${next_x2}: ${next_y2.toFixed(2)}`);
 
+let firstDifferences = [];
+for (let i = 1; i < y_data.length; i++) {
+  firstDifferences.push(y_data[i] - y_data[i - 1]);
+}
+
+let secondDifferences = [];
+for (let i = 1; i < firstDifferences.length; i++) {
+  secondDifferences.push(firstDifferences[i] - firstDifferences[i - 1]);
+}
+
+console.log("First differences:", firstDifferences);
+console.log("Second differences:", secondDifferences);
